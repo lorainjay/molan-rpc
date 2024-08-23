@@ -11,7 +11,7 @@ public class EasyConsumerExample {
         // 动态代理
         RpcConfig rpcConfig = RpcApplication.getRpcConfig();
 //        System.out.println("name:" + rpcConfig.getName());
-        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
+        UserService userService = ServiceProxyFactory.getMockProxy(UserService.class);
 //        UserService userService = null;
         User user = new User();
         user.setName(rpcConfig.getName());
@@ -22,5 +22,7 @@ public class EasyConsumerExample {
         } else {
             System.out.println("user == null");
         }
+        long number = userService.getNumber();
+        System.out.println("获取到number: "  + number);
     }
 }
