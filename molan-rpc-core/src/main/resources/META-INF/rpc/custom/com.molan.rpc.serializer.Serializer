@@ -1,0 +1,2 @@
+json=com.molan.rpc.serializer.JsonSerializer
+kryo=com.molan.rpc.serializer.KryoSerializer

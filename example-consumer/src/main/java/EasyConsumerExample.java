@@ -1,7 +1,8 @@
 import com.example.common.model.User;
 import com.example.common.service.UserService;
-import config.RpcConfig;
-import proxy.ServiceProxyFactory;
+import com.molan.rpc.RpcApplication;
+import com.molan.rpc.config.RpcConfig;
+import com.molan.rpc.proxy.ServiceProxyFactory;
 
 public class EasyConsumerExample {
 
@@ -11,7 +12,7 @@ public class EasyConsumerExample {
         // 动态代理
         RpcConfig rpcConfig = RpcApplication.getRpcConfig();
 //        System.out.println("name:" + rpcConfig.getName());
-        UserService userService = ServiceProxyFactory.getMockProxy(UserService.class);
+        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
 //        UserService userService = null;
         User user = new User();
         user.setName(rpcConfig.getName());

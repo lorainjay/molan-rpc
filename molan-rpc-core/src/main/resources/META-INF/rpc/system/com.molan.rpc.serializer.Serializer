@@ -1,0 +1,2 @@
+jdk=com.molan.rpc.serializer.JdkSerializer
+hessian=com.molan.rpc.serializer.HessianSerializer

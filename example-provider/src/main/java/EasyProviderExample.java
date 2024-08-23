@@ -1,9 +1,9 @@
-import com.example.common.model.User;
 import com.example.common.service.UserService;
-import config.RpcConfig;
-import registry.LocalRegistry;
-import server.HttpServer;
-import server.VertxHttpServer;
+import com.molan.rpc.RpcApplication;
+import com.molan.rpc.config.RpcConfig;
+import com.molan.rpc.registry.LocalRegistry;
+import com.molan.rpc.server.HttpServer;
+import com.molan.rpc.server.VertxHttpServer;
 
 /**
  * 简单服务提供示例
