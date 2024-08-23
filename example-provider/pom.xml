@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.molan</groupId>
-            <artifactId>molan-rpc-easy</artifactId>
+            <artifactId>molan-rpc-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
