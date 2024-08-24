@@ -1,7 +1,10 @@
 package com.molan.rpc;
 
+import com.molan.rpc.config.RegistryConfig;
 import com.molan.rpc.config.RpcConfig;
 import com.molan.rpc.constant.RpcConstant;
+import com.molan.rpc.registry.Registry;
+import com.molan.rpc.registry.RegistryFactory;
 import lombok.extern.slf4j.Slf4j;
 import com.molan.rpc.utils.ConfigUtils;
 
@@ -19,9 +22,21 @@ public class RpcApplication {
      *
      * @param newRpcConfig
      */
+    /**
+     * 框架初始化，支持传入自定义配置
+     *
+     * @param newRpcConfig
+     */
     public static void init(RpcConfig newRpcConfig) {
         rpcConfig = newRpcConfig;
-        log.info("rpc init, com.molan.rpc.config = {}", newRpcConfig.toString());
+        log.info("rpc init, config = {}", newRpcConfig.toString());
+        // 注册中心初始化
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
+        registry.init(registryConfig);
+        log.info("registry init, config = {}", registryConfig);
+        // 创建并注册 Shutdown Hook，JVM 退出时执行操作
+        Runtime.getRuntime().addShutdownHook(new Thread(registry::destroy));
     }
 
     /**
