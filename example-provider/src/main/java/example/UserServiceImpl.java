@@ -1,3 +1,5 @@
+package example;
+
 import com.example.common.model.User;
 import com.example.common.service.UserService;
 

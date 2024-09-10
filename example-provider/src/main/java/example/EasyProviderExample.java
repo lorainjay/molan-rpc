@@ -1,3 +1,5 @@
+package example;
+
 import com.example.common.service.UserService;
 import com.molan.rpc.RpcApplication;
 import com.molan.rpc.config.RpcConfig;
